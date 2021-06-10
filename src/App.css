@@ -163,6 +163,17 @@ img {
   cursor: pointer;
 }
 
+.nav_menu_show {
+  position: fixed;
+  top: var(--header-height);
+  right: 0%;
+  width: 80%;
+  height: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 0.5s;
+  backdrop-filter: blur(10px);
+}
 /*=== Show menu ===*/
 .show {
   right: 0;

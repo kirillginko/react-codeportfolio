@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function navbar() {
-  const showMenu = (toggleId, navId) => {
-    const toggle = document.getElementById(toggleId),
-      nav = document.getElementById(navId);
+export default function Navbar() {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
 
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classNameList.toggle("show");
-      });
-    }
-  };
-  showMenu("nav-toggle", "nav-menu");
+  // const showMenu = (toggleId, navId) => {
+  //   const toggle = document.getElementById(toggleId),
+  //     nav = document.getElementById(navId);
+
+  //   if (toggle && nav) {
+  //     toggle.addEventListener("click", () => {
+  //       nav.classNameList.toggle("show");
+  //     });
+  //   }
+  // };
+  // showMenu("nav-toggle", "nav-menu");
 
   return (
     <header className="l-header">
@@ -52,7 +55,12 @@ export default function navbar() {
           </ul>
         </div>
 
-        <div className="nav__toggle" id="nav-toggle" onClick={() => showMenu()}>
+        <div
+          className="nav__toggle"
+          id="nav-toggle"
+          onClick={handleClick}
+          className={click ? "nav_menu_show" : "nav__toggle"}
+        >
           <i className="bx bx-menu"></i>
         </div>
       </nav>
