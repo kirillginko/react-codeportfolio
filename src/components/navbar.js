@@ -25,7 +25,11 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="nav__menu" id="nav-menu">
+        <div
+          className="nav__menu"
+          id="nav-menu"
+          className={click ? "nav_menu_show" : "nav__menu"}
+        >
           <ul className="nav__list">
             <li className="nav__item">
               <a href="#home" className="nav__link active">
@@ -55,12 +59,7 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div
-          className="nav__toggle"
-          id="nav-toggle"
-          onClick={handleClick}
-          className={click ? "nav_menu_show" : "nav__toggle"}
-        >
+        <div className="nav__toggle" id="nav-toggle" onClick={handleClick}>
           <i className="bx bx-menu"></i>
         </div>
       </nav>
