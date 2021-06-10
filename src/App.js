@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <main class="l-main">
+      <main className="l-main">
         <Home />
         <About />
         <Skills />
