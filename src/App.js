@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Home from "./components/home";
-import About from "./components/about";
-import Skills from "./components/skills";
-import Projects from "./components/projects";
-import Contact from "./components/contact";
-import Footer from "./components/footer";
+import Home from "./components/Home";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
