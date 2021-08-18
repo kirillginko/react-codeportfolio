@@ -1,8 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { gsap, Power3 } from "gsap";
 
 export default function Navbar() {
+  const [active, setActive] = useState(false);
   let tl = gsap.timeline({ opacity: 0 });
+
+  const showMenu = () => {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("show");
+  };
+
+  const getActive = (e) => {
+    const id = e.target.id;
+    e.target.classList.add("active");
+  };
+
+  const activeLink = () => {
+    if (active === true) {
+      return "active";
+    } else {
+      return "nav__link";
+    }
+  };
 
   useEffect(() => {
     tl.from(
@@ -21,37 +40,37 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="nav__menu" id="nav-menu">
+        <div className="nav__menu" id="nav-menu" onClick={(e) => getActive(e)}>
           <ul className="nav__list">
             <li className="nav__item top__nav">
-              <a href="#home" className="nav__link active">
+              <a href="#home" id="0" className="nav__link">
                 Home
               </a>
             </li>
             <li className="nav__item top__nav">
-              <a href="#about" className="nav__link">
+              <a href="#about" id="1" className="nav__link">
                 About
               </a>
             </li>
             <li className="nav__item top__nav">
-              <a href="#skills" className="nav__link">
+              <a href="#skills" id="2" className="nav__link">
                 Skills
               </a>
             </li>
             <li className="nav__item top__nav">
-              <a href="#portfolio" className="nav__link">
+              <a href="#portfolio" id="3" className="nav__link">
                 Portfolio
               </a>
             </li>
             <li className="nav__item top__nav">
-              <a href="#contact" className="nav__link">
+              <a href="#contact" id="4" className="nav__link">
                 Contact
               </a>
             </li>
           </ul>
         </div>
 
-        <div className="nav__toggle" id="nav-toggle">
+        <div className="nav__toggle" id="nav-toggle" onClick={() => showMenu()}>
           <i className="bx bx-menu"></i>
         </div>
       </nav>

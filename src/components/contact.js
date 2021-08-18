@@ -1,6 +1,27 @@
 import React from "react";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_dk3dgiv",
+        "portfolio_template",
+        e.target,
+        "user_uXFJN5Q1eWTxNrhzHwAy0"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
+
   return (
     <div>
       <section className="contact section" id="contact">
@@ -15,31 +36,46 @@ export default function Contact() {
             <span className="contact__text">301-512-4249</span>
 
             <h3 className="contact__subtitle">New York, NY</h3>
-            <span className="contact__text">US</span>
+            <span className="contact__text">USA</span>
           </div>
 
-          <form action="" className="contact__form">
+          <form action="" className="contact__form" onSubmit={sendEmail}>
             <div className="contact__inputs">
               <input
                 type="text"
                 id="name"
                 placeholder="Name"
                 className="contact__input"
+                name="Name"
+                required
               />
               <input
-                type="mail"
+                type="email"
                 id="email"
                 placeholder="Email"
                 className="contact__input"
+                name="Email"
+                required
               />
             </div>
+            <input
+              name="Subject"
+              placeholder="Subject"
+              id="subject"
+              cols="0"
+              rows="1"
+              className="contact__input"
+              required
+            ></input>
 
             <textarea
-              name=""
+              name="Message"
+              placeholder="Tell me what you are looking for..."
               id="text"
               cols="0"
               rows="10"
               className="contact__input"
+              required
             ></textarea>
 
             <input type="submit" value="Submit" className="contact__button" />

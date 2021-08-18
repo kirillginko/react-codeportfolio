@@ -9,7 +9,7 @@
 
 /*===== Colors =====*/
 :root {
-  --first-color: #e8a87c;
+  --first-color: rgb(232, 168, 124);
   --white-color: #fafaff;
   --dark-color: #2a3b47;
   --text-color: #697477;
@@ -206,7 +206,7 @@ a.effect-underline:after {
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: scale(0, 1);
   transform: scale(0, 1);
-  color: #e8a87c;
+  color: rgb(232, 168, 124);
 }
 
 a.effect-underline:hover:after {
@@ -334,7 +334,7 @@ a.effect-underline:hover:after {
   visibility: hidden;
   width: 75px;
   background-color: white;
-  color: #e8a87c;
+  color: rgb(232, 168, 124);
   text-align: center;
   border-radius: 5px;
   padding: 2px 0;
@@ -500,6 +500,11 @@ a.effect-underline:hover:after {
   font-size: var(--normal-font-size);
   margin-bottom: var(--mb-4);
   border-radius: 0.5rem;
+  transition: 0.4s ease;
+  resize: none;
+}
+.contact__form > textarea {
+  font-family: "Montserrat", sans-serif;
 }
 .contact__button {
   display: block;
@@ -512,6 +517,18 @@ a.effect-underline:hover:after {
   outline: none;
   font-size: var(--normal-font-size);
   cursor: pointer;
+  transition: 0.4s ease;
+}
+.contact__button:hover {
+  background-color: var(--dark-color);
+  transition: 0.4s ease;
+}
+.contact__input:focus {
+  border: 1.5px solid var(--first-color);
+  -webkit-box-shadow: 0px 0px 30px 0px rgb(232, 168, 124, 1);
+  -moz-box-shadow: 0px 0px 30px 0px rgb(232, 168, 124, 1);
+  box-shadow: 0px 0px 30px 0px rgb(232, 168, 124, 1);
+  transition: 0.4s ease;
 }
 
 /* ===== FOOTER=====*/
