@@ -20,6 +20,7 @@ export default function Contact() {
           console.log(error.text);
         }
       );
+    e.target.reset();
   }
 
   return (
