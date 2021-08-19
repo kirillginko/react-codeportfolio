@@ -10,18 +10,32 @@ export default function Navbar() {
     nav.classList.toggle("show");
   };
 
-  const getActive = (e) => {
-    const id = e.target.id;
-    e.target.classList.add("active");
-  };
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    console.log(sections);
 
-  const activeLink = () => {
-    if (active === true) {
-      return "active";
-    } else {
-      return "nav__link";
+    window.addEventListener("scroll", scrollActive);
+
+    function scrollActive() {
+      const scrollY = window.pageYOffset;
+
+      sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        const sectionId = current.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document
+            .querySelector(".nav__menu a[href*=" + sectionId + "]")
+            .classList.add("active");
+        } else {
+          document
+            .querySelector(".nav__menu a[href*=" + sectionId + "]")
+            .classList.remove("active");
+        }
+      });
     }
-  };
+  });
 
   useEffect(() => {
     tl.from(
@@ -40,10 +54,10 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="nav__menu" id="nav-menu" onClick={(e) => getActive(e)}>
+        <div className="nav__menu" id="nav-menu">
           <ul className="nav__list">
             <li className="nav__item top__nav">
-              <a href="#home" id="0" className="nav__link">
+              <a href="#home" id="0" className="nav__link active">
                 Home
               </a>
             </li>
